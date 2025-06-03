@@ -1,0 +1,387 @@
+{
+  "sections": {
+    "slideshow_AxBeyD": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_BMg3Nz": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/pink-spring-flowers.jpg",
+            "heading": "Image slide",
+            "heading_size": "h2",
+            "subheading": "Tell your brand's story through images",
+            "button_label": "Button label",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-3",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_mx9HEj": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/daisies-on-pink.jpg",
+            "heading": "Image slide",
+            "heading_size": "h1",
+            "subheading": "Tell your brand's story through images",
+            "button_label": "Button label",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-3",
+            "text_alignment_mobile": "center"
+          }
+        }
+      },
+      "block_order": [
+        "slide_BMg3Nz",
+        "slide_mx9HEj"
+      ],
+      "settings": {
+        "layout": "full_bleed",
+        "slide_height": "medium",
+        "slider_visual": "counter",
+        "auto_rotate": true,
+        "change_slides_speed": 5,
+        "image_behavior": "none",
+        "show_text_below": false,
+        "accessibility_info": "Slideshow about our brand"
+      }
+    },
+    "featured_collection": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Featured products",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "all",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": true,
+        "color_scheme": "scheme-3",
+        "image_ratio": "adapt",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 44,
+        "padding_bottom": 36
+      }
+    },
+    "rich_text_4VjPfb": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_Wn9mWb": {
+          "type": "heading",
+          "settings": {
+            "heading": "Talk about your brand",
+            "heading_size": "h1"
+          }
+        },
+        "text_hWTyDP": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p>"
+          }
+        },
+        "button_cmxMwg": {
+          "type": "button",
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_Wn9mWb",
+        "text_hWTyDP",
+        "button_cmxMwg"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-4",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "image_with_text_aaNhgU": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_JPyacy": {
+          "type": "heading",
+          "settings": {
+            "heading": "Image with text",
+            "heading_size": "h1"
+          }
+        },
+        "text_H66C6Y": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "text_style": "body"
+          }
+        },
+        "button_iPHhPX": {
+          "type": "button",
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_JPyacy",
+        "text_H66C6Y",
+        "button_iPHhPX"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/colorful-pens-shown-on-white.jpg",
+        "height": "small",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "scheme-3",
+        "color_scheme": "scheme-3",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "multicolumn_Tz6zHk": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_9mWiXT": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/plate-of-pastel-macarons.jpg",
+            "title": "Column",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "link_label": "Clique",
+            "link": ""
+          }
+        },
+        "column_cVdjnH": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/pastel-pink-cherry-blossoms-in-spring.jpg",
+            "title": "Column",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_HX8NFD": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/marshmallow-candy-texture.jpg",
+            "title": "Column",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_9mWiXT",
+        "column_cVdjnH",
+        "column_HX8NFD"
+      ],
+      "settings": {
+        "title": "Multicolumn",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "scheme-3",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "section_testimonials_h3VqJb": {
+      "type": "section-testimonials",
+      "blocks": {
+        "column_CCh4xQ": {
+          "type": "column",
+          "settings": {
+            "title": "Estou gostanto muito",
+            "testimonial": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ornare quam ut risus iaculis tempor at id mi. Praesent auctor lectus quis urna posuere, vel malesuada velit interdum.",
+            "author": "Fulano de Tal",
+            "stars": 4
+          }
+        },
+        "column_jfd94k": {
+          "type": "column",
+          "settings": {
+            "title": "Estou gostanto muito",
+            "testimonial": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ornare quam ut risus iaculis tempor at id mi. Praesent auctor lectus quis urna posuere, vel malesuada velit interdum.",
+            "author": "Fulano de Tal",
+            "stars": 2
+          }
+        },
+        "column_KJgPxM": {
+          "type": "column",
+          "settings": {
+            "title": "Estou gostanto muito",
+            "testimonial": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ornare quam ut risus iaculis tempor at id mi. Praesent auctor lectus quis urna posuere, vel malesuada velit interdum.",
+            "author": "Fulano de Tal",
+            "stars": 5
+          }
+        },
+        "column_GnGL8D": {
+          "type": "column",
+          "settings": {
+            "title": "Estou gostanto muito",
+            "testimonial": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ornare quam ut risus iaculis tempor at id mi. Praesent auctor lectus quis urna posuere, vel malesuada velit interdum.",
+            "author": "Fulano de Tal",
+            "stars": 4
+          }
+        },
+        "column_wAVFdE": {
+          "type": "column",
+          "settings": {
+            "title": "Estou gostanto muito",
+            "testimonial": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ornare quam ut risus iaculis tempor at id mi. Praesent auctor lectus quis urna posuere, vel malesuada velit interdum.",
+            "author": "Fulano de Tal",
+            "stars": 5
+          }
+        }
+      },
+      "block_order": [
+        "column_CCh4xQ",
+        "column_jfd94k",
+        "column_KJgPxM",
+        "column_GnGL8D",
+        "column_wAVFdE"
+      ],
+      "settings": {
+        "title": "O que dizem por aí",
+        "heading_size": "h1",
+        "auto_rotate": true,
+        "change_slides_speed": 5,
+        "color_scheme": "scheme-3",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "section_brands_say_iVCTtT": {
+      "type": "section-brands-say",
+      "blocks": {
+        "testimonial_BV6Dnj": {
+          "type": "testimonial",
+          "settings": {
+            "logo": "shopify:\/\/shop_images\/Marca_1_1.png",
+            "title_brand": "Marca 1",
+            "image_with_text_width": 140,
+            "quote": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita atque reprehenderit, dolorem doloremque iste pariatur ad autem fuga nisi esse incidunt nihil vero quia. Optio corporis sapiente libero reiciendis deleniti?<\/p>",
+            "testimonial_link": ""
+          }
+        },
+        "testimonial_6BYXTB": {
+          "type": "testimonial",
+          "settings": {
+            "logo": "shopify:\/\/shop_images\/Marca_2_1.png",
+            "title_brand": "Marca 2",
+            "image_with_text_width": 140,
+            "quote": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates eum quidem, qui iure officia reprehenderit culpa dignissimos velit libero odit totam laudantium odio illo consequatur a necessitatibus, aut animi dolor.<\/p>",
+            "testimonial_link": ""
+          }
+        },
+        "testimonial_8meqmB": {
+          "type": "testimonial",
+          "settings": {
+            "logo": "shopify:\/\/shop_images\/Marca_3_1.png",
+            "title_brand": "Marca 3",
+            "image_with_text_width": 160,
+            "quote": "<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem voluptatum, nulla a est dicta itaque quidem, sunt ipsum doloremque laboriosam expedita impedit libero at inventore ipsam quam fugiat ratione suscipit?<\/p>",
+            "testimonial_link": ""
+          }
+        },
+        "testimonial_jmwWU4": {
+          "type": "testimonial",
+          "settings": {
+            "logo": "shopify:\/\/shop_images\/Marca_4.png",
+            "title_brand": "Marca 4",
+            "image_with_text_width": 185,
+            "quote": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde rem pariatur dolores. Distinctio quas sunt quibusdam, laborum consequuntur vitae repellendus quasi deleniti maxime beatae ullam praesentium deserunt minus inventore. Odio?<\/p>",
+            "testimonial_link": ""
+          }
+        },
+        "testimonial_KPRFtA": {
+          "type": "testimonial",
+          "settings": {
+            "logo": "shopify:\/\/shop_images\/Marca_5.png",
+            "title_brand": "Marca 5",
+            "image_with_text_width": 135,
+            "quote": "<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus reprehenderit est repudiandae, quisquam voluptate excepturi atque numquam. Id eum ab dolorem magni? Excepturi illum odio eos fugit ipsum temporibus dolorum.<\/p>",
+            "testimonial_link": ""
+          }
+        },
+        "testimonial_KPx6V3": {
+          "type": "testimonial",
+          "settings": {
+            "logo": "shopify:\/\/shop_images\/Marca_6.png",
+            "title_brand": "Marca 6",
+            "image_with_text_width": 150,
+            "quote": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis voluptatem, beatae consectetur voluptatibus, tempora mollitia reprehenderit ipsa rem dolorum numquam dolor iusto pariatur, natus maxime debitis. Magni natus iure deleniti?<\/p>",
+            "testimonial_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_BV6Dnj",
+        "testimonial_6BYXTB",
+        "testimonial_8meqmB",
+        "testimonial_jmwWU4",
+        "testimonial_KPRFtA",
+        "testimonial_KPx6V3"
+      ],
+      "settings": {
+        "title": "Citações na mídia",
+        "heading_size": "h1",
+        "cycle_speed": 5,
+        "color_scheme": "scheme-3",
+        "padding_top": 36,
+        "padding_bottom": 80
+      }
+    }
+  },
+  "order": [
+    "slideshow_AxBeyD",
+    "featured_collection",
+    "rich_text_4VjPfb",
+    "image_with_text_aaNhgU",
+    "multicolumn_Tz6zHk",
+    "section_testimonials_h3VqJb",
+    "section_brands_say_iVCTtT"
+  ]
+}

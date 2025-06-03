@@ -1,0 +1,209 @@
+{{ 'section-brands-say.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{% assign timeout = section.settings.cycle_speed %}
+
+<section class="section-brands-say-wrapper color-{{ section.settings.color_scheme }}">
+  <div class="page-width section-{{ section.id }}-padding {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+    <div class="title-wrapper-with-link title-wrapper--self-padded-mobile title-wrapper--no-top-margin">
+      <h2 class="title inline-richtext {{ section.settings.heading_size }}">{{ section.settings.title }}</h2>
+    </div>
+
+    <div class="TestimonialList Carousel">
+      {%- for block in section.blocks -%}
+        <div class="Carousel__Cell Testimonial {% if forloop.first %}is-selected{% endif %}" {{ block.shopify_attributes }} aria-label="{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}">
+          {%- if block.settings.quote != blank -%}
+            <div class="Testimonial__Content">
+              {{ block.settings.quote }}
+            </div>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+
+    <div class="TestimonialNav">
+      {%- for block in section.blocks -%}
+        {%- if block.settings.logo != blank -%}
+          {% assign has_link = false %}
+          {% if block.settings.testimonial_link != blank %}
+            {% assign has_link = true %}
+          {% endif %}
+
+          {% if has_link %}<a href="{{ block.settings.testimonial_link }}" title="{{ block.settings.title_brand }}">{% endif %}
+            <img loading="lazy" class="TestimonialNav__Item {% if forloop.first %}is-selected{% endif %}" aria-label="{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}" src="{{ block.settings.logo | image_url: width: 300 }}" alt="{% unless has_link %}{{ block.settings.title_brand }}{% endunless %}" width="{{ block.settings.image_with_text_width }}" height="{{ block.settings.image_with_text_width | divided_by: block.settings.logo.aspect_ratio | round }}">
+          {% if has_link %}</a>{% endif %}
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+<script>
+  window.addEventListener('DOMContentLoaded', function() {
+    const arrayLogos = document.querySelectorAll('.TestimonialNav .TestimonialNav__Item')
+    const arrayTexts = document.querySelectorAll('.Carousel__Cell.Testimonial')
+
+    const timeoutMilliseconds = {{ timeout }} * 1000
+    let currentIndex = 1;
+
+    function updateOpacity() {
+      arrayLogos.forEach(item => item.classList.remove('is-selected'));
+      arrayLogos[currentIndex].classList.add('is-selected');
+
+      arrayTexts.forEach(item => item.classList.remove('is-selected'));
+      arrayTexts[currentIndex].classList.add('is-selected');
+
+      currentIndex = (currentIndex + 1) % arrayLogos.length;
+    }
+
+    setInterval(updateOpacity, timeoutMilliseconds);
+  });
+</script>
+
+
+{% schema %}
+{
+  "name": "t:sections.section-brands-say.name", 
+  "class": "section-brands-say",
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "t:sections.section-brands-say.settings.title.label",
+      "default": "Citações na mídia"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "range",
+      "id": "cycle_speed",
+      "min": 3,
+      "max": 8,
+      "step": 1,
+      "unit": " s",
+      "label": "t:sections.section-brands-say.settings.cycle_speed.label",
+      "default": 5
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "t:sections.section-brands-say.blocks.testimonial.name",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "t:sections.section-brands-say.blocks.testimonial.settings.logo.label",
+          "info": "t:sections.section-brands-say.blocks.testimonial.settings.logo.info"
+        },
+        {
+          "type": "text",
+          "id": "title_brand",
+          "label": "t:sections.section-brands-say.blocks.testimonial.settings.title_brand.label"
+        },
+        {
+          "type": "range",
+          "id": "image_with_text_width",
+          "min": 50,
+          "max": 400,
+          "step": 5, 
+          "unit": "px",
+          "label": "t:sections.section-brands-say.blocks.testimonial.settings.image_with_text_width.label",
+          "default": 150
+        },
+        {
+          "type": "richtext",
+          "id": "quote",
+          "label": "t:sections.section-brands-say.blocks.testimonial.settings.quote.label",
+          "default": "<p>Share what your customers are saying about your products, your company...</p>",
+          "info": "t:sections.section-brands-say.blocks.testimonial.settings.quote.info"
+        },
+        {
+          "type": "url",
+          "id": "testimonial_link",
+          "label": "t:sections.section-brands-say.blocks.testimonial.settings.testimonial_link.label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "category": "Text",
+      "name": "t:sections.section-brands-say.name",
+      "settings": {},
+      "blocks": [
+        {
+          "type": "testimonial",
+          "settings": {}
+        },
+        {
+          "type": "testimonial",
+          "settings": {}
+        },
+        {
+          "type": "testimonial",
+          "settings": {}
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

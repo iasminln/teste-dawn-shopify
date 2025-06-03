@@ -1,0 +1,87 @@
+
+<div class=" gradient">
+  <div class="contact page-width page-width--narrow section--padding">
+
+    {%- liquid
+      assign contact_form_class = 'isolate'
+      if settings.animations_reveal_on_scroll
+        assign contact_form_class = 'isolate scroll-trigger animate--slide-in'
+      endif
+    -%}
+    {% form 'contact', id: 'ContactForm', class: popup-form__container %}
+      {%- if form.posted_successfully? -%}
+        <script>document.body.style.overflow = 'hidden'</script>
+        <div class="form-artists__popup-background">
+          <div class="form-artists__popup">
+            obrigado por entrar em contato
+          
+          </div>
+        </div>
+      {%- elsif form.errors -%}
+        <ul class="form-status-list caption-large" role="list">
+          <li>
+            <a href="#ContactForm-email" class="link">
+              {{ form.errors.translated_fields.email | capitalize }}
+              {{ form.errors.messages.email }}
+            </a>
+          </li>
+        </ul>
+      {%- endif -%}
+      <input type="hidden" name="contact[Produto]" value="Mensagem recebida do formulário de orçamento do produto: <a>{{ product_name }}</a>">
+
+      <div class="popup-user__form-field input-name">
+        <label for="name">{{ 'products.popup-budget.name.label' | t }}</label>
+        <input id="first-name" type="text" name="contact[Nome]" placeholder="{{ 'products.popup-budget.name.placeholder' | t }}">
+      </div>
+
+      <div class="popup-user__form-field input-email">
+        <label for="email">{{ 'products.popup-budget.email.label' | t }}</label>
+        <input id="email" type="email" name="contact[email]" placeholder="{{ 'products.popup-budget.email.placeholder' | t }}">
+      </div>
+
+      <div class="popup-user__form-field input-phone">
+        <label for="phone">{{ 'products.popup-budget.phone.label' | t }}</label>
+        <input id="phone" type="cel" name="contact[Telefone]" placeholder="{{ 'products.popup-budget.phone.placeholder' | t }}">
+      </div>
+
+      <div class="popup-user__form-field input-address">
+        <label for="address">{{ 'products.popup-budget.address.label' | t }}</label>
+        <input id="address" type="text" name="contact[Endereço]" placeholder="{{ 'products.popup-budget.address.placeholder' | t }}">
+      </div>
+
+      <div class="popup-user__form-field input-number">
+        <label for="number">{{ 'products.popup-budget.number.label' | t }}</label>
+        <input id="number" type="number" name="contact[Número]" placeholder="{{ 'products.popup-budget.number.placeholder' | t }}">
+      </div>
+
+      <div class="popup-user__form-field input-cep">
+        <label for="cep">{{ 'products.popup-budget.cep.label' | t }}</label>
+        <input id="cep" type="text" name="contact[CEP]" placeholder="{{ 'products.popup-budget.cep.placeholder' | t }}">
+      </div>
+
+      <div class="popup-user__form-field input-city">
+        <label for="city">{{ 'products.popup-budget.city.label' | t }}</label>
+        <input id="city" type="text" name="contact[Cidade]" placeholder="{{ 'products.popup-budget.city.placeholder' | t }}">
+      </div>
+
+      <div class="popup-user__form-field input-state">
+        <label for="state">{{ 'products.popup-budget.state.label' | t }}</label>
+        <input id="state" type="text" name="contact[Estado]" placeholder="{{ 'products.popup-budget.state.placeholder' | t }}">
+      </div>
+
+      <div class="popup-user__form-field input-used-for">
+        <label for="used_for">{{ 'products.popup-budget.used_for.label' | t }}</label>
+        <input id="used_for" type="text" name="contact[Utilização]" placeholder="{{ 'products.popup-budget.used_for.placeholder' | t }}">
+      </div>
+
+      <div class="popup-user__form-field input-quantity">
+        <label for="quantity">{{ 'products.popup-budget.quantity.label' | t }}</label>
+        <input id="quantity" type="text" name="contact[Metragem]" placeholder="{{ 'products.popup-budget.quantity.placeholder' | t }}">
+      </div>
+
+      <button type="submit" class="button link popup-user__link">{{ 'products.popup-budget.button_submit' | t }}</button>
+    {% endform %}
+  </div>
+</div>
+
+

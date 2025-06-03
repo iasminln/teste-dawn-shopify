@@ -1,0 +1,53 @@
+@keyframes testimonialOpening {
+  from {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.Carousel__Cell.Testimonial:not(.is-selected) {
+  display: none;
+}
+
+.Carousel__Cell.Testimonial.is-selected {
+  display: block;
+  text-align: center;
+  animation: testimonialOpening 1s forwards;
+}
+
+.TestimonialNav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+  flex-wrap: wrap;
+  gap: 30px 60px;
+}
+
+.TestimonialNav__Item {
+  opacity: 0.25;
+  transition: opacity 0.2s ease-in-out;
+  will-change: opacity;
+}
+
+.TestimonialNav__Item.is-selected {
+  opacity: 1;
+}
+
+@media screen and (max-width: 749px) {
+  .TestimonialNav__Item {
+    display: none;
+  }
+
+  .TestimonialNav__Item.is-selected {
+    display: block;
+    animation: testimonialOpening 1s forwards;
+  }
+}

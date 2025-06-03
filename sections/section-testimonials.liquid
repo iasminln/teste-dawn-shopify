@@ -1,0 +1,223 @@
+{{ 'section-testimonials.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="section-testimonials-wrapper color-{{ section.settings.color_scheme }}">
+  <div class="page-width section-{{ section.id }}-padding">
+    <div class="title-wrapper-with-link title-wrapper--self-padded-mobile title-wrapper--no-top-margin">
+      <h2 class="title inline-richtext {{ section.settings.heading_size }}">{{ section.settings.title }}</h2>
+    </div>
+    <slideshow-component class="slider-mobile-gutter">
+      <ul id="Slider-{{ section.id }}" class="carousel-testimonials grid grid--1-col-tablet-down {% if section.blocks.size >= 3 %} grid--3-col-desktop {% elsif section.blocks.size == 2 %} grid--2-col-desktop {% else %} grid--1-col-desktop{% endif %} slider slider--everywhere total-slides--{{ section.blocks.size }}" data-autoplay="{{ section.settings.auto_rotate }}" data-speed="{{ section.settings.change_slides_speed }}" aria-live="polite" role="list">
+        {% for block in section.blocks %}
+          <li class="carousel-cell grid__item slider__slide slideshow__slide scroll-trigger animate--slide-in" id="Slide-{{ section.id }}-{{ forloop.index }}" 
+            aria-roledescription="{{ 'sections.slideshow.slide' | t }}"
+            aria-label="{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}"
+            {{ block.shopify_attributes }}
+            {% if settings.animations_reveal_on_scroll %}
+              data-cascade
+              style="--animation-order: {{ forloop.index }};"
+            {% endif %}
+          >
+            <div class="context">
+              <p class="title">{{ block.settings.title }}</p>
+              <p class="testimonial">{{ block.settings.testimonial }}</p>
+            </div>
+            <div class="context">
+              <span class="rating">
+                {% assign max_stars = 5 %}
+                {% assign filled_stars = block.settings.stars %}
+                {% assign unfilled_stars = max_stars | minus: filled_stars %}
+                {% for i in (1..filled_stars) %}
+                  <span class="icon icon-fillerd">{% render 'icon-star' %}</span>
+                {% endfor %}
+                {% if filled_stars < 5 %}
+                  {% for i in (1..unfilled_stars) %}
+                    <span class="icon icon-unfillerd">{% render 'icon-star' %}</span>
+                  {% endfor %}
+                {% endif %}
+              </span>
+              <span class="author">{{ block.settings.author }}</span>
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+
+      <div class="slider-buttons no-js-hidden total-slides--{{ section.blocks.size }}">
+        <button
+          type="button"
+          class="slider-button slider-button--prev"
+          name="previous"
+          aria-label="{{ 'general.slider.previous_slide' | t }}"
+        >
+          {% render 'icon-caret' %}
+        </button>
+        <div class="slider-counter caption">
+          <span class="slider-counter--current">1</span>
+          <span aria-hidden="true"> / </span>
+          <span class="visually-hidden">{{ 'general.slider.of' | t }}</span>
+          <span class="slider-counter--total">{{ section.blocks.size }}</span>
+        </div>
+        <button
+          type="button"
+          class="slider-button slider-button--next"
+          name="next"
+          aria-label="{{ 'general.slider.next_slide' | t }}"
+        >
+          {% render 'icon-caret' %}
+        </button>
+
+        {%- if section.settings.auto_rotate -%}
+          <button
+            type="button"
+            class="slideshow__autoplay slider-button no-js-hidden{% if section.settings.auto_rotate == false %} slideshow__autoplay--paused{% endif %}"
+            aria-label="{{ 'sections.slideshow.pause_slideshow' | t }}"
+          >
+            {%- render 'icon-pause' -%}
+            {%- render 'icon-play' -%}
+          </button>
+        {%- endif -%}
+      </div>
+    </slideshow-component>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.section-testimonials.name",
+  "class": "spaced-section section-testimonials",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "t:sections.section-testimonials.settings.title.label",
+      "default": "O que dizem por aí"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "auto_rotate",
+      "label": "t:sections.slideshow.settings.auto_rotate.label",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "change_slides_speed",
+      "min": 3,
+      "max": 9,
+      "step": 2,
+      "unit": "s",
+      "label": "t:sections.slideshow.settings.change_slides_speed.label",
+      "default": 5
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "column",
+      "name": "t:sections.section-testimonials.blocks.column.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "t:sections.section-testimonials.blocks.column.settings.title.label",
+          "default": "Estou gostanto muito"
+        },
+        {
+          "type": "textarea",
+          "id": "testimonial",
+          "label": "t:sections.section-testimonials.blocks.column.settings.testimonial.label",
+          "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ornare quam ut risus iaculis tempor at id mi. Praesent auctor lectus quis urna posuere, vel malesuada velit interdum."
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "t:sections.section-testimonials.blocks.column.settings.author.label",
+          "default": "Fulano de Tal"
+        },
+        {
+          "type": "range",
+          "id": "stars",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "label": "t:sections.section-testimonials.blocks.column.settings.stars.label",
+          "default": 3
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.section-testimonials.name",
+      "blocks": [
+        {
+          "type": "column"
+        },
+        {
+          "type": "column"
+        },
+        {
+          "type": "column"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
